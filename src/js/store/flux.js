@@ -5,7 +5,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			 baseImgUrl: 'https://starwars-visualguide.com/assets/img/',
 			 characters: [],
 			 favorites: [],
-			 delete: [],
 			 singleCharacter: {}
 		},
 		actions: {
@@ -20,15 +19,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					newFavorites.push(favorite)
 					setStore({favorites: newFavorites})
 				},
-				deleteFavorite: (favorite) => {
-				},
 				getSingleCharacter: (characterUrl) => {
 					fetch(characterUrl)
 					.then(resp => resp.json())
 					.then(data => setStore({singleCharacter: data.result}))
-				}
+				},
+				deleteSingleCharacter: (favoriteIndex) => {
+				    getStore({
+					favorites: getStore().favorites.filter(
+					(favorite, index) => index !== favoriteIndex
+					)
+				}),
 		}
-	};
+	 };
+  };
 };
 
 export default getState;
