@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import injectContext from "./store/appContext.jsx";
+
 import ScrollToTop from "./component/scrollToTop.jsx";
 
 import { Home } from "./views/home.jsx";
-//import { SingleCharacter } from "./views/SingleCharacter.jsx";//
-import injectContext from "./store/appContex.jsx";
+import { SingleCharacter } from "./views/SingleCharacter.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -23,6 +24,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/singleCharacter">
+							<SingleCharacter />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
