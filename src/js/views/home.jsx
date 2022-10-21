@@ -1,17 +1,11 @@
 import React, {useContext}from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { useHistory } from "react-router-dom";
 
 export const Home = () => {
 	const {store, actions} = useContext(Context)
 	const history = useHistory()
-
-	// useEffect(() => {
-	// 	getCharacters()
-	// }, [])
-
 	return(
 	<>
 		<h1>Star Wars</h1>

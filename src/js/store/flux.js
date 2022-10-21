@@ -10,9 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			getCharacters: () => {
 				fetch(getStore().baseUrl + 'people')
-					.then(res => res.json())
-					.then(data => setStore({characters:data.results}))
-					.catch(error => console.log(error))
+					.then((res) => res.json())
+					.then((data) => setStore({characters:data.results}))
+					.catch((error) => console.log(error))
 				},
 				addFavorite: (favorite) => {
 					const newFavorites = getStore().favorites
@@ -21,18 +21,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				getSingleCharacter: (characterUrl) => {
 					fetch(characterUrl)
-					.then(resp => resp.json())
-					.then(data => setStore({singleCharacter: data.result}))
+					.then((res) => res.json())
+					.then((data) => setStore({singleCharacter: data.result}))
 				},
 				deleteSingleCharacter: (favoriteIndex) => {
 				    getStore({
 					favorites: getStore().favorites.filter(
 					(favorite, index) => index !== favoriteIndex
 					)
-				}),
-		}
-	 };
-  };
-};
+				})
+			}
+	 }
+  }
+}
 
 export default getState;

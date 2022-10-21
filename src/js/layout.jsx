@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import ScrollToTop from "./component/scrollToTop.jsx";
 
 import { Home } from "./views/home.jxs";
 import { SingleCharacter } from "./views/SingleCharacter.jsx";
