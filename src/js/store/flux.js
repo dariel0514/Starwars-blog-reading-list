@@ -1,3 +1,5 @@
+import dist from "webpack-merge";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -25,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((data) => setStore({ singleCharacter: data.result }));
 				},
 				deleteSingleCharacter: (favoriteIndex) => {
-				    getStore({
+				    setStore({
 					favorites: getStore().favorites.filter(
 					(favorite, index) => index !== favoriteIndex
 					),
