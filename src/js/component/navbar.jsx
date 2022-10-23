@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 
 export const Navbar = () => {
-	const {store, actions} = useContext(Context)
+	const { store, actions } = useContext(Context)
 	const history = useHistory()
 	console.log(store.singleCharacter)
 	return (
@@ -23,7 +23,7 @@ export const Navbar = () => {
 					<a 
 					className="dropdown-item" 
 					onClick={() => {
-						actions.singleCharacter(favorite.url);
+						actions.getSingleCharacter(favorite.url);
 						history.push("/singlecharacter");
 						}}
 						>
