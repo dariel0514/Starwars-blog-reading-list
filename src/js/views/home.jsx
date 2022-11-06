@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+
   const history = useHistory();
   return (
     <>
@@ -36,6 +37,41 @@ export const Home = () => {
                 className="btn btn-warning"
                 onClick={() => {
                   actions.addFavorite(characters);
+                }}
+              >
+                <i className="far fa-heart"></i>
+              </button>
+            </div>
+          );
+        })}
+      </div>
+      <h1>Planets</h1>
+      <div className="card-group">
+        {store.planet.map((planet) => {
+          return (
+            <div className="card" key={planet.uid}>
+              <img
+                src={store.baseImgUrl + "planets/" + planet.uid + ".jpg"}
+                className="card-img-top"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{planet.name}</h5>
+              </div>
+
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  actions.getSinglePlanet(planet.url);
+                  history.push("/singlePlanet");
+                }}
+              >
+                learn more
+              </button>
+              <button
+                className="btn btn-warning"
+                onClick={() => {
+                  actions.addFavorite(planet);
                 }}
               >
                 <i className="far fa-heart"></i>

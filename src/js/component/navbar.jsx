@@ -5,7 +5,7 @@ import { Context } from "../store/appContext.jsx";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const history = useHistory();
-  console.log(store.singleCharacter);
+
   return (
     <nav className="navbar navbar-light bg-light mb-3">
       <Link to="/">

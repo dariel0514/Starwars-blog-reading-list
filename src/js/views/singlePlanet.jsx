@@ -2,20 +2,20 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
 
-export const SingleCharacter = () => {
+export const SinglePlanet = () => {
   const { store, actions } = useContext(Context);
-  console.log(store.singleCharacter);
+  console.log(store.singlePlanet);
   return (
     <>
-      {store.singleCharacter.uid ? (
+      {store.singlePlanet.uid ? (
         <div className="card mb-3" style={{ maxWidth: "540px" }}>
           <div className="row g-0">
             <div className="col-md-4">
               <img
                 src={
                   store.baseImgUrl +
-                  "/characters/" +
-                  store.singleCharacter.uid +
+                  "/planets/" +
+                  store.singlePlanet.uid +
                   ".jpg"
                 }
                 className="img-fluidrounded-start"
@@ -29,18 +29,22 @@ export const SingleCharacter = () => {
                 style={{ marginTop: "550px", marginLeft: "-100px" }}
               >
                 <h5 className="card-title">
-                  {store.singleCharacter.properties.name}
+                  {store.singlePlanet.properties.name}
                 </h5>
-                <p className="card-text">{store.singleCharacter.description}</p>
+                <p className="card-text">{store.singlePlanet.description}</p>
               </div>
             </div>
           </div>
-          <div>Name: {store.singleCharacter.properties.name}</div>
-          <div>Birth: {store.singleCharacter.properties.birth_year}</div>
-          <div>Gender: {store.singleCharacter.properties.gender}</div>
-          <div>Height: {store.singleCharacter.properties.height}</div>
-          <div>Skin: {store.singleCharacter.properties.skin_color}</div>
-          <div>Eye Color: {store.singleCharacter.properties.eye_color}</div>
+          <div>Name: {store.singlePlanet.properties.name}</div>
+          <div>Climate: {store.singlePlanet.properties.climate}</div>
+          <div>Population: {store.singlePlanet.properties.population}</div>
+          <div>
+            Orbital Periot: {store.singlePlanet.properties.orbital_period}
+          </div>
+          <div>
+            Rotation Periot: {store.singlePlanet.properties.rotation_period}
+          </div>
+          <div>Diameter: {store.singlePlanet.properties.diameter}</div>
         </div>
       ) : (
         <Link to="/">

@@ -6,6 +6,7 @@ import ScrollToTop from "./component/scrollToTop.jsx";
 
 import { Home } from "./views/home.jsx";
 import { SingleCharacter } from "./views/SingleCharacter.jsx";
+import { SinglePlanet } from "./views/singlePlanet.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -27,6 +28,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/singleCharacter">
               <SingleCharacter />
+            </Route>
+            <Route exact path="/singlePlanet">
+              <SinglePlanet />
             </Route>
             <Route>
               <h1>Not found!</h1>
